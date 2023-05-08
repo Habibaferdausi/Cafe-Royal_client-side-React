@@ -7,13 +7,27 @@ import "./index.css";
 
 import AddCoffee from "./assets/Components/ADD Coffee/AddCoffe.jsx";
 import Update from "./assets/Components/Update coffee/Update.jsx";
+import Main from "./assets/Components/Main/Main.jsx";
+import Home from "./assets/Components/Home/Home.jsx";
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: <App></App>,
+  //   loader: () => fetch("http://localhost:5000/coffee"),
+  // },
+
   {
     path: "/",
-    element: <App></App>,
-    loader: () => fetch("http://localhost:5000/coffee"),
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+    ],
   },
+
   {
     path: "addCoffee",
     element: <AddCoffee></AddCoffee>,
